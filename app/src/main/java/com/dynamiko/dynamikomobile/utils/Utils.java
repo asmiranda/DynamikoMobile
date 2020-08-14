@@ -11,12 +11,14 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Utils {
+    private static String HOST = "https://raw.githubusercontent.com/asmiranda/DynamikoMobile/master/app/src/main/assets/";
+
     public static void syncFiles() throws IOException {
-        String str = getStringFromURL("update.txt", "https://raw.githubusercontent.com/asmiranda/DynamikoMobile/master/app/src/main/assets/update.txt");
+        String str = getStringFromURL("update.txt", HOST+"update.txt");
         boolean change = LocalDate.parse(str).isBefore(LocalDate.now());
         if (change) {
-            updateStringFromURL("explore.html", "");
-            updateStringFromURL("news.html", "");
+            updateStringFromURL("explore.html", HOST+"explore.html");
+            updateStringFromURL("news.html", HOST+"news.html");
         }
     }
 
