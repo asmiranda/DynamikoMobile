@@ -11,10 +11,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Utils {
-    public final static String HOST = "";
-
     public static void syncFiles() throws IOException {
-        String str = getStringFromURL("update.txt", "");
+        String str = getStringFromURL("update.txt", "https://raw.githubusercontent.com/asmiranda/DynamikoMobile/master/app/src/main/assets/update.txt");
         boolean change = LocalDate.parse(str).isBefore(LocalDate.now());
         if (change) {
             updateStringFromURL("explore.html", "");
