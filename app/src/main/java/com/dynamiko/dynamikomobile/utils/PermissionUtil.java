@@ -15,7 +15,7 @@ public class PermissionUtil {
     public static void requestNeededPermissions() {
         requestPermission(Manifest.permission.INTERNET);
         requestPermission(Manifest.permission.CAMERA);
-        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
     }
 
     private static void requestPermission(String permissionStr) {

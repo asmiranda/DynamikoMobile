@@ -22,8 +22,8 @@ public class Utils {
         String str = getStringFromURL("update.txt", HOST+"update.txt");
         boolean change = LocalDate.parse(str).isBefore(LocalDate.now());
         if (change) {
-            updateFS("explore.html", HOST+"explore.html");
-            updateFS("news.html", HOST+"news.html");
+            Storage.exploreContent = updateFS("explore.html", HOST+"explore.html");
+            Storage.newsContent = updateFS("news.html", HOST+"news.html");
         }
     }
 
@@ -32,13 +32,14 @@ public class Utils {
         return text;
     }
 
-    public static void updateFS(String fileName, String urlStr) throws IOException {
+    public static String updateFS(String fileName, String urlStr) throws IOException {
         String text = getStringFromURL(fileName, urlStr);
 
         SharedPreferences sharedPref = MainActivity.main.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(fileName, text);
         editor.commit();
+        return text;
     }
 
     public static String getFromFS(String fileName) {

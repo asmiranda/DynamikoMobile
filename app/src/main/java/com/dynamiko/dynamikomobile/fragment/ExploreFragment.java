@@ -14,6 +14,8 @@ import com.dynamiko.dynamikomobile.utils.Utils;
 
 import java.io.IOException;
 
+import static com.dynamiko.dynamikomobile.utils.Storage.exploreContent;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ExploreFragment#newInstance} factory method to
@@ -21,7 +23,6 @@ import java.io.IOException;
  */
 public class ExploreFragment extends Fragment {
     WebView webView;
-    String webContent;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,11 +78,9 @@ public class ExploreFragment extends Fragment {
     }
 
     public void updateView() throws IOException {
-        if (webContent == null) {
-            webContent = Utils.getFromFS("explore.html");
+        if (exploreContent == null) {
+            exploreContent = Utils.getFromFS("explore.html");
         }
-        if (webView!=null) {
-            webView.loadDataWithBaseURL(null, webContent, "text/html", "UTF-8", null);
-        }
+        webView.loadDataWithBaseURL("file:///android_asset/", exploreContent, "text/html", "UTF-8", null);
     }
 }
