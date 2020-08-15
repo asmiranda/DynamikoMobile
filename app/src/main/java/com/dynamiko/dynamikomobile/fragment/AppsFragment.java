@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.dynamiko.dynamikomobile.R;
 
@@ -16,6 +17,7 @@ import com.dynamiko.dynamikomobile.R;
  * create an instance of this fragment.
  */
 public class AppsFragment extends Fragment {
+    WebView webView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +64,8 @@ public class AppsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_apps, container, false);
+    }
+
+    public void updateView() {
     }
 }

@@ -7,8 +7,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.dynamiko.dynamikomobile.R;
+import com.dynamiko.dynamikomobile.utils.Utils;
+
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +20,8 @@ import com.dynamiko.dynamikomobile.R;
  * create an instance of this fragment.
  */
 public class ExploreFragment extends Fragment {
+    WebView webView;
+    String webContent;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +66,22 @@ public class ExploreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explore, container, false);
+        View inflatedView = inflater.inflate(R.layout.fragment_explore, container, false);
+        webView = Utils.initWebView("Explore", inflatedView, R.id.exploreWebView, true);
+        try {
+            this.updateView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return inflatedView;
+    }
+
+    public void updateView() throws IOException {
+        if (webContent == null) {
+            webContent = Utils.getFromFS("explore.html");
+        }
+        if (webView!=null) {
+            webView.loadDataWithBaseURL(null, webContent, "text/html", "UTF-8", null);
+        }
     }
 }
