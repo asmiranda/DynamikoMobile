@@ -30,10 +30,10 @@ public class PermissionUtil {
         switch (requestCode) {
             case PERMISSION_REQUEST_CODE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    Toast.makeText(MainActivity.main, "Permission granted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.main, "Permission granted", Toast.LENGTH_SHORT).show();
                     //store permission in shared pref
                 } else {
-//                    Toast.makeText(MainActivity.main, "Permission denied", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.main, "Permission denied", Toast.LENGTH_SHORT).show();
                     //store permission in shared pref
                 }
                 break;

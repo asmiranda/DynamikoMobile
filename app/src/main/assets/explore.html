@@ -15,35 +15,27 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="css/AdminLTE.min.css">
     <link rel="stylesheet" href="css/skins/_all-skins.min.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/dynamiko.js"></script>
 </head>
 
 <body>
+<section class="content-header">
+    <h1>
+        Choose Apps to install
+    </h1>
+</section>
 <div id="main" style="display: flex; flex-direction: column; margin: 10px;">
-    <div class="user-block" style="margin: 5px;">
-        <img class="img-circle img-bordered-sm" src="img/user1-128x128.jpg" alt="user image">
-        <span class="username">
-                <a href="#">Virtual School</a>
-                <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-            </span>
-        <span class="description">Shared publicly - 7:30 PM today</span>
-    </div>
-    <div class="user-block" style="margin: 5px;">
-        <img class="img-circle img-bordered-sm" src="img/user1-128x128.jpg" alt="user image">
-        <span class="username">
-                <a href="#">Virtual School</a>
-                <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-            </span>
-        <span class="description">Shared publicly - 7:30 PM today</span>
-    </div>
-    <div class="user-block" style="margin: 5px;">
-        <img class="img-circle img-bordered-sm" src="img/user1-128x128.jpg" alt="user image">
-        <span class="username">
-                <a href="#">Virtual School</a>
-                <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-            </span>
-        <span class="description">Shared publicly - 7:30 PM today</span>
-    </div>
 </div>
+<script>
+    $(function() {
+        let dynamiko = new Dynamiko();
+        dynamiko.loadExplore();
+    })
+</script>
 </body>
 
 </html>
